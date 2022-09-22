@@ -5,26 +5,25 @@ output: github_document
 date: "2022-09-22"
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup, include = FALSE}
+library(tidyverse)
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+## Problem 1
+Code to load the penguins dataset from a package "palmerpenguins" containing the penguins dataset:
+```{r penguinsdatasets}
+data("penguins", package = "palmerpenguins")
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+In order to get the mean of flipper length, I dropped NA in flipper_length_mm column and then calculate the mean later in my description.
+```{r}
+penguins_withoutna = drop_na(penguins)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+* The data in this dataset, including names / values of important variables.
+  * There are eight variables in the dataset, which are named as species, island,    bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex, year.
+* The size of the dataset (using nrow and ncol)
+  * There are `r nrow(penguins)` rows and `r ncol(penguins)` columns of the dataset, which is a dataset with a size of `r nrow(penguins)` * `r ncol(penguins)`.
+* The mean flipper length
+  * The mean of flipper_length_mm is `r mean(pull(penguins_withoutna, flipper_length_mm))`.
