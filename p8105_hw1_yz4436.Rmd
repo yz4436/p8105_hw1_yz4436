@@ -27,3 +27,8 @@ penguins_withoutna = drop_na(penguins)
   * There are `r nrow(penguins)` rows and `r ncol(penguins)` columns of the dataset, which is a dataset with a size of `r nrow(penguins)` * `r ncol(penguins)`.
 * The mean flipper length
   * The mean of flipper_length_mm is `r mean(pull(penguins_withoutna, flipper_length_mm))`.
+  
+```{r}
+ggplot(penguins_withoutna, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point() 
+ggsave("scatterplot for Problem 1 in HW1.pdf")
+```
