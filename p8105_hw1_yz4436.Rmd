@@ -56,7 +56,7 @@ mean(pull(sample_df, factor_samp))
 * What works and what doesn’t?
   * I try to take the mean of all four variables. The first variable norm_samp and the second variable norm_samp_positive works, and the third variable char_samp and the fourth variable factor_samp does not work and return NA.
 
-Applying the as.numeric function to the logical, character, and factor variables to convert the type of variables to numeric.
+Applying the as.numeric function to the logical, character, and factor variables to convert the type of variables to numeric. Usinh eval = FALSE to show the chunk but not the output.
 ```{r, eval = FALSE}
 as.numeric(pull(sample_df, norm_samp_positive))
 as.numeric(pull(sample_df, char_samp))
